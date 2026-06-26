@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wandr – PAGE TITLE</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    h2 { font-size: 1.1rem; margin-top: 32px; color: #333; }
+    p, li { font-size: 1rem; color: #444; }
+    .lang-switcher {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .lang-switcher a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #007AFF;
+    }
+    .lang-switcher a.active {
+      color: #1a1a1a;
+      pointer-events: none;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #999;
+    }
+  </style>
+  <script>
+    // Auto-redirect based on ?lang= param
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (lang === 'es') {
+      document.documentElement.lang = 'es';
+    }
+  </script>
+</head>
+<body>
+
+  <div class="lang-switcher">
+    <a href="?lang=en" id="link-en">EN</a>
+    <a href="?lang=es" id="link-es">ES</a>
+  </div>
+
+  <!-- ENGLISH -->
+  <div id="content-en">
+    <h1>Page Title</h1>
+    <p>Placeholder content in English.</p>
+  </div>
+
+  <!-- SPANISH -->
+  <div id="content-es" style="display:none">
+    <h1>Título de la página</h1>
+    <p>Contenido de ejemplo en español.</p>
+  </div>
+
+  <footer>© 2025 Wandr. All rights reserved.</footer>
+
+  <script>
+    const p = new URLSearchParams(window.location.search).get('lang') || 'en';
+    document.getElementById('content-en').style.display = p === 'es' ? 'none' : 'block';
+    document.getElementById('content-es').style.display = p === 'es' ? 'block' : 'none';
+    document.getElementById('link-en').className = p === 'en' ? 'active' : '';
+    document.getElementById('link-es').className = p === 'es' ? 'active' : '';
+  </script>
+
+</body>
+</html>
