@@ -3,69 +3,484 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wandr – PAGE TITLE</title>
+  <title>Wandr – About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-      color: #1a1a1a;
-      line-height: 1.7;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral:   #D85A30;
+      --green:   #0E1A16;
+      --cream:   #F4F1EA;
+      --border:  #D3D1C7;
+      --muted:   #5F5E5A;
+      --text:    #0E1A16;
+      --bg:      #ffffff;
     }
-    h1 { font-size: 1.8rem; margin-bottom: 8px; }
-    h2 { font-size: 1.1rem; margin-top: 32px; color: #333; }
-    p, li { font-size: 1rem; color: #444; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--green);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.4rem;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--coral); }
+
+    /* ── Lang switcher ── */
     .lang-switcher {
       display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 4px;
     }
+
     .lang-switcher a {
-      text-decoration: none;
-      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
       font-weight: 600;
-      color: #007AFF;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      color: #C7CFC9;
+      transition: background 0.15s, color 0.15s;
     }
+
     .lang-switcher a.active {
-      color: #1a1a1a;
+      background: var(--coral);
+      color: #fff;
       pointer-events: none;
     }
+
+    .lang-switcher a:not(.active):hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    /* ── Hero band ── */
+    .hero {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: var(--green);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-number {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.15rem;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    p { color: #333; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    ul li {
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── Feature cards ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.95rem;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
     footer {
-      margin-top: 60px;
+      background: var(--green);
+      color: #C7CFC9;
+      text-align: center;
+      padding: 28px 24px;
       font-size: 0.8rem;
-      color: #999;
+    }
+
+    footer a { color: var(--coral); }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:   #0E1A16;
+        --text: #F4F1EA;
+        --border: #33423B;
+        --muted: #888780;
+      }
+      p, ul li { color: #C7CFC9; }
+      h2 { color: var(--cream); }
+      .hero { background: #1A2620; }
+      .hero h1 { color: var(--cream); }
+      .card { background: #1A2620; }
+      .card h3 { color: var(--cream); }
+      .card p { color: #888780; }
     }
   </style>
-  <script>
-    // Auto-redirect based on ?lang= param
-    const params = new URLSearchParams(window.location.search);
-    const lang = params.get('lang');
-    if (lang === 'es') {
-      document.documentElement.lang = 'es';
-    }
-  </script>
 </head>
 <body>
 
-  <div class="lang-switcher">
-    <a href="?lang=en" id="link-en">EN</a>
-    <a href="?lang=es" id="link-es">ES</a>
-  </div>
+  <!-- Header -->
+  <header>
+    <a href="../" class="logo">wandr<span>.</span></a>
+    <div class="lang-switcher">
+      <a href="?lang=en" id="link-en">EN</a>
+      <a href="?lang=es" id="link-es">ES</a>
+    </div>
+  </header>
 
   <!-- ENGLISH -->
   <div id="content-en">
-    <h1>Page Title</h1>
-    <p>Placeholder content in English.</p>
+    <div class="hero">
+      <p class="hero-eyebrow">Company</p>
+      <h1>About Wandr</h1>
+      <p class="hero-meta">Connecting travellers with the people who know a place best</p>
+    </div>
+
+    <div class="content">
+
+      <div class="section">
+        <p>
+          Wandr is a mobile platform that connects travellers with local guides through
+          self-paced walking tours. We believe the best way to experience a place is through
+          the eyes of someone who truly knows it — not a script, but a story.
+        </p>
+        <p>
+          Whether you have an afternoon to fill or a week to explore, Wandr gives you access
+          to tours crafted by locals: historians, artists, lifelong residents, and passionate
+          storytellers who want to share what makes their city worth slowing down for.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="section">
+        <p class="section-number">01</p>
+        <h2>What We Do</h2>
+        <p>
+          Wandr lets you buy and follow walking tours entirely on your phone, at your own pace.
+          Each tour is a curated sequence of stops — each one a moment worth pausing for. Stops
+          can include audio narration, video, written context, and even short quizzes to help
+          you engage more deeply with what you're seeing.
+        </p>
+        <p>
+          Your GPS position is shown on the in-tour map so you always know where you are and
+          what's coming next, without needing to follow a group or stick to a rigid schedule.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-number">02</p>
+        <h2>How It Works</h2>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>Browse</h3>
+            <p>Search tours by city, language, price, duration, or type of experience. Filter by what matters to you.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎟️</div>
+            <h3>Buy</h3>
+            <p>Purchase a tour securely. Your payment goes directly to the guide who created it.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🗺️</div>
+            <h3>Explore</h3>
+            <p>Follow the map at your own pace. Unlock each stop as you arrive and take in the story.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⭐</div>
+            <h3>Review</h3>
+            <p>Leave a review after your tour to help other travellers find the best experiences.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-number">03</p>
+        <h2>Who Creates the Tours</h2>
+        <p>
+          Every tour on Wandr is created by a local guide — a real person with genuine knowledge
+          of the place. Guides set their own routes, write their own content, choose their own
+          stops, and decide their own prices. We provide the tools; they bring the expertise.
+        </p>
+        <p>
+          Tours can cover history and architecture, street art and culture, food and
+          neighbourhoods, or anything else a guide feels is worth sharing. The range of
+          experiences grows with every guide who joins.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-number">04</p>
+        <h2>Our Values</h2>
+        <ul>
+          <li><strong>Local first.</strong> The people who live somewhere understand it better than any travel company ever could. We give guides the platform to share that knowledge on their own terms.</li>
+          <li><strong>Self-paced, always.</strong> Travel doesn't run on a fixed schedule. Wandr tours go at your speed, not ours.</li>
+          <li><strong>No ads, no noise.</strong> Wandr is ad-free. We earn when guides earn — nothing else.</li>
+          <li><strong>Privacy by design.</strong> We collect only what is needed to run the service. Your location is used to help you navigate a tour and nothing else. We never sell your data.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-number">05</p>
+        <h2>Become a Guide</h2>
+        <p>
+          Do you know a city, neighbourhood, or trail the way only a local can? Wandr is open
+          to anyone who wants to share that knowledge. Create your own tour, set your stops,
+          and start earning when travellers explore your route.
+        </p>
+        <p>
+          To get started or to ask any questions about becoming a guide, reach out to us at
+          <a href="mailto:guides@wandr.app">guides@wandr.app</a>.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-number">06</p>
+        <h2>Get in Touch</h2>
+        <p>
+          We are a small team and we read every message. Whether you have a question, a
+          problem, or a suggestion, we want to hear from you.
+        </p>
+        <ul>
+          <li><strong>General enquiries:</strong> <a href="mailto:hello@wandr.app">hello@wandr.app</a></li>
+          <li><strong>Privacy questions:</strong> <a href="mailto:privacy@wandr.app">privacy@wandr.app</a></li>
+          <li><strong>Guide programme:</strong> <a href="mailto:guides@wandr.app">guides@wandr.app</a></li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 
   <!-- SPANISH -->
   <div id="content-es" style="display:none">
-    <h1>Título de la página</h1>
-    <p>Contenido de ejemplo en español.</p>
+    <div class="hero">
+      <p class="hero-eyebrow">Empresa</p>
+      <h1>Sobre Wandr</h1>
+      <p class="hero-meta">Conectando viajeros con quienes mejor conocen un lugar</p>
+    </div>
+
+    <div class="content">
+
+      <div class="section">
+        <p>
+          Wandr es una plataforma móvil que conecta a viajeros con guías locales a través de
+          rutas a pie a tu propio ritmo. Creemos que la mejor forma de vivir un lugar es a través
+          de los ojos de alguien que lo conoce de verdad — no un guión, sino una historia.
+        </p>
+        <p>
+          Tanto si tienes una tarde libre como una semana entera para explorar, Wandr te da acceso
+          a rutas creadas por locales: historiadores, artistas, vecinos de toda la vida y narradores
+          apasionados que quieren compartir lo que hace que su ciudad merezca la pena recorrer
+          con calma.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="section">
+        <p class="section-number">01</p>
+        <h2>Qué hacemos</h2>
+        <p>
+          Wandr te permite comprar y seguir rutas a pie directamente desde tu móvil, a tu propio
+          ritmo. Cada ruta es una secuencia de paradas seleccionadas — cada una, un momento que
+          merece la pena. Las paradas pueden incluir narración en audio, vídeo, texto explicativo
+          e incluso breves preguntas para que conectes más profundamente con lo que estás viendo.
+        </p>
+        <p>
+          Tu posición GPS aparece en el mapa de la ruta para que siempre sepas dónde estás y qué
+          viene a continuación, sin necesidad de seguir a un grupo ni ajustarte a un horario rígido.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-number">02</p>
+        <h2>Cómo funciona</h2>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>Explora</h3>
+            <p>Busca rutas por ciudad, idioma, precio, duración o tipo de experiencia. Filtra lo que más te importa.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎟️</div>
+            <h3>Compra</h3>
+            <p>Adquiere una ruta de forma segura. Tu pago va directamente al guía que la ha creado.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🗺️</div>
+            <h3>Descubre</h3>
+            <p>Sigue el mapa a tu ritmo. Desbloquea cada parada al llegar y sumérgete en la historia.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⭐</div>
+            <h3>Valora</h3>
+            <p>Deja una reseña tras tu ruta para ayudar a otros viajeros a encontrar las mejores experiencias.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-number">03</p>
+        <h2>Quién crea las rutas</h2>
+        <p>
+          Cada ruta en Wandr está creada por un guía local — una persona real con un conocimiento
+          genuino del lugar. Los guías diseñan sus propios recorridos, redactan sus contenidos,
+          eligen sus paradas y fijan sus precios. Nosotros ponemos las herramientas; ellos aportan
+          la experiencia.
+        </p>
+        <p>
+          Las rutas pueden tratar sobre historia y arquitectura, arte urbano y cultura, gastronomía
+          y barrios, o cualquier otra cosa que un guía considere que vale la pena compartir. La
+          oferta de experiencias crece con cada guía que se une a la plataforma.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-number">04</p>
+        <h2>Nuestros valores</h2>
+        <ul>
+          <li><strong>Lo local, primero.</strong> Quienes viven en un lugar lo entienden mejor que cualquier empresa de viajes. Damos a los guías la plataforma para compartir ese conocimiento en sus propios términos.</li>
+          <li><strong>Siempre a tu ritmo.</strong> Los viajes no se rigen por horarios fijos. Las rutas de Wandr van al ritmo que tú marques, no al nuestro.</li>
+          <li><strong>Sin anuncios, sin ruido.</strong> Wandr no tiene publicidad. Ganamos cuando los guías ganan — nada más.</li>
+          <li><strong>Privacidad por diseño.</strong> Solo recopilamos lo necesario para prestar el servicio. Tu ubicación se usa para ayudarte a navegar durante una ruta y para nada más. Nunca vendemos tus datos.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-number">05</p>
+        <h2>Conviértete en guía</h2>
+        <p>
+          ¿Conoces una ciudad, un barrio o un camino como solo un local puede conocerlo? Wandr
+          está abierto a cualquier persona que quiera compartir ese conocimiento. Crea tu propia
+          ruta, define tus paradas y empieza a ganar cuando los viajeros recorran tu itinerario.
+        </p>
+        <p>
+          Para empezar o si tienes alguna pregunta sobre el programa de guías, escríbenos a
+          <a href="mailto:guides@wandr.app">guides@wandr.app</a>.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-number">06</p>
+        <h2>Contacto</h2>
+        <p>
+          Somos un equipo pequeño y leemos cada mensaje. Tanto si tienes una duda, un problema
+          o una sugerencia, queremos escucharte.
+        </p>
+        <ul>
+          <li><strong>Consultas generales:</strong> <a href="mailto:hello@wandr.app">hello@wandr.app</a></li>
+          <li><strong>Preguntas sobre privacidad:</strong> <a href="mailto:privacy@wandr.app">privacy@wandr.app</a></li>
+          <li><strong>Programa de guías:</strong> <a href="mailto:guides@wandr.app">guides@wandr.app</a></li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 
-  <footer>© 2025 Wandr. All rights reserved.</footer>
+  <footer>
+    © 2026 Wandr. All rights reserved. &nbsp;·&nbsp;
+    <a href="../privacy">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="../faq">FAQ</a>
+  </footer>
 
   <script>
     const p = new URLSearchParams(window.location.search).get('lang') || 'en';
